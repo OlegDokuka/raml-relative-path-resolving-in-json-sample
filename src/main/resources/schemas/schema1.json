@@ -1,0 +1,10 @@
+{
+  "description": "List of data",
+  "type": "array",
+  "required": [
+    "items"
+  ],
+  "items": {
+    "$ref" : "schema2.json"
+  }
+}

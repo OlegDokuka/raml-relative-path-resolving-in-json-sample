@@ -1,0 +1,55 @@
+#%RAML 1.0
+---
+#===============================================================
+#  SEPA Direct Debits - RAML example http://raml.org/
+#  References:
+#    - RAML Specification - https://github.com/raml-org/raml-spec/blob/master/raml-1.0.md
+#===============================================================
+title: SEPA Direct Debits
+version: v1
+baseUri: "{version}"
+mediaType:  application/json
+protocols: [ HTTP, HTTPS ]
+#===============================================================
+#  API documentation - Overall documentation.
+#===============================================================
+
+types:
+  MySchema: !include schemas/schema1.json
+#===============================================================
+# API resource definitions
+#===============================================================
+/my:
+  description: My URL
+  displayName: URL
+  /url:
+    description: Another
+    displayName: Another
+    uriParameters: null
+    get:
+      description: "Get Data"
+      queryParameters:
+      responses:
+        200:
+          description: Some Desc
+          body:
+            application/json:
+              type: MySchema
+              example: |
+                  [
+                    {
+                      "id": "1",
+                      "reference": "AASDS123123ASDFAS",
+                      "dateOfSignature": "2016-10-11T00:00:00Z"
+                    },
+                    {
+                      "id": "2",
+                      "reference": "AASDS123123ASDFAS",
+                      "dateOfSignature": "2016-06-30T00:00:00Z"
+                    },
+                    {
+                      "id": "3",
+                      "reference": "AASDS123123ASDFAS",
+                      "dateOfSignature": "2016-07-25T00:00:00Z"
+                    }
+                  ]
